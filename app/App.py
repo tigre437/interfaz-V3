@@ -11,10 +11,12 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import pyqtSlot, Qt, pyqtSignal, QThread, QTimer
 from PyQt6.QtGui import QPixmap, QTransform
-from interfaces.interfazv1 import Ui_MainWindow  
 from pygrabber.dshow_graph import FilterGraph
 import datetime
+
+from interfaces.interfazv1 import Ui_MainWindow
 from interfaces.configFotos import Ui_Dialog
+
 import threading  
 from Lib.lauda import Lauda
 from Lib.VideoThread import VideoThread
@@ -46,7 +48,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.video_thread.start()
         self.lauda.start()
 
-        self.lauda = lauda.Lauda()
+        self.lauda = Lauda()
 
         # Graficas
         scene = QtWidgets.QGraphicsScene()
