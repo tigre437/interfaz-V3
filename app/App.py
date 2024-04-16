@@ -14,12 +14,13 @@ from PyQt6.QtGui import QPixmap, QTransform
 from pygrabber.dshow_graph import FilterGraph
 import datetime
 
-from interfaces.interfazv1 import Ui_MainWindow
-from interfaces.configFotos import Ui_Dialog
+from interfazv1 import Ui_MainWindow
+from configFotos import Ui_Dialog
 
 import threading  
-from Lib.lauda import Lauda
-from Lib.VideoThread import VideoThread
+
+from lauda import lauda
+from VideoThread import VideoThread
 
 
 ruta_experimento_activo = None
@@ -42,13 +43,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.dialog.ui.buttonBox.accepted.connect(self.guardar_datos_camara)
 
 
-        self.lauda = Lauda()
+        self.lauda = lauda()
         self.video_thread = VideoThread(MainWindow)
 
         #self.video_thread.start()
         self.lauda.start()
-
-        self.lauda = Lauda()
+        
 
         # Graficas
         scene = QtWidgets.QGraphicsScene()

@@ -26,7 +26,7 @@ ERROR_TABLE = {
 }
 
 
-class Lauda(QThread):
+class lauda(QThread):
     """ Class Lauda describes the thermostat and all its parameters.
     Methods allow handling the instrument (setting and getting parameters)
     """
